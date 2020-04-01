@@ -20,8 +20,8 @@ object FileStreaming {
     scc.checkpoint("hdfs://192.168.158.177:9000/checkpoint")
     val streamFile = scc.textFileStream("hdfs://192.168.158.177:9000/wordfiles")
     val words = streamFile.flatMap(_.split(" ")).map(x=>(x,1))
-//    val lines = FlumeUtils.createStream(scc,"192.168.158.1",8889)
-//    lines.map(x=>new String(x.event.getBody.array()).trim).flatMap(_.split(" ")).map(x=>(x,1)).reduceByKey(_+_)
+    //    val lines = FlumeUtils.createStream(scc,"192.168.158.1",8889)
+    //    lines.map(x=>new String(x.event.getBody.array()).trim).flatMap(_.split(" ")).map(x=>(x,1)).reduceByKey(_+_)
     val history_words = words.updateStateByKey(updateFunc)
 
     /**
