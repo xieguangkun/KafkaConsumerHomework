@@ -7,7 +7,7 @@
   <properties>
     <scala.version>2.11.12</scala.version>
     <spark.version>2.3.4</spark.version>
-    <jackson.version>2.6.0</jackson.version>
+    <jackson.version>2.9.10.8</jackson.version>
   </properties>
 
   <repositories>
